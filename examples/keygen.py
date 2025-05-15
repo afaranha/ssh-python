@@ -24,6 +24,7 @@ if isinstance(key_type, keytypes.ED25519Key):
     args.bits = 0
 
 keypair = key.generate(key_type, args.bits)
+print("Test")
 
 keypair.export_privkey_file(args.file)
 pubkey = keypair.export_pubkey_base64().decode()

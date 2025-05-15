@@ -82,12 +82,14 @@ cdef class SSHKey:
         b_name = c_name
         return to_str(b_name)
 
-    def export_privkey_file(self, filepath, passphrase=None):
+    def export_privkey_file(self, filepath, passphrase=None, key_format=None):
         cdef bytes b_passphrase
         cdef bytes b_filepath = to_bytes(filepath)
         cdef const_char *c_passphrase = NULL
         cdef const_char *c_filepath = b_filepath
         cdef int rc
+        print("Format: {}".format(key_format))
+        raise
         if passphrase is not None:
             b_passphrase = to_bytes(passphrase)
             c_passphrase = b_passphrase
